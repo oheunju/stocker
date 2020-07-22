@@ -15,8 +15,23 @@
 	 <%@ include file="../common/meta.jsp" %>
 	 <title>재고</title>
 	 <%@ include file="../common/header.jsp" %>
+<style>
+.stock-tr {
+	/* font-family: 고딕; */
+	font-weight: bold;
+}
+</style>	 
   </head>
   <body>
+  <script>
+	$(function(){
+		var message = "<%=msg%>";
+		if(message != "null"){
+			alert(message);
+			<% session.removeAttribute("msg"); %>
+		}
+	});
+  </script> 
     <div class="container-scroller">
 	  <%@ include file="../common/navbar.jsp" %>
       <!-- partial -->
@@ -35,41 +50,15 @@
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-basket"></i>
                 </span> 재 고 </h3>
-                <!-- 재고메인버튼 -->
-                <!-- <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="stock-main-btn" style="display: inline-block; margin-right: 10px;"  "> 재고조회
-                <i class="mdi mdi-basket"></i>
-                </button> -->
-                <!-- 이송요청버튼 -->
                  </div>
                 <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" 
                 id="stock-submit-btn" style="display: inline-block; margin-right: 40px; text-align: right !important;"
                 onclick="window.open('<%=contextPath%>/product/stockForm?eCode=<%=empLoggedIn.geteCode()%>','_blank', 'top=1,left=500,width=1000,height=700')  "> 이송요청
                 <i class="mdi mdi-file-check"></i>
                 </button>
-            
-
-<style>
-.stock-tr {
-	/* font-family: 고딕; */
-	font-weight: bold;
-}
-</style>
-<script>
-	$(function(){
-		var message = "<%=msg%>";
-		// var message = "회원가입 성공!!"; // "null"
-		if(message != "null"){
-			alert(message);
-			<% session.removeAttribute("msg"); %>
-		}
-	});
-</script>                
-                
-                
             </div>
           
           <div class="stock-main">
-          
         
            <div class="col-12">
                 <div class="card">
@@ -124,11 +113,6 @@
                 </div>
               </div>
             
-              
-              
-          
-          <%-- Contents --%>
-          
           <!-- <div class="row"> -->
               <div class="col-12 grid-margin" style="margin-top: 26px">
                 <div class="card">
@@ -137,12 +121,6 @@
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
-                        <style>
-                        #stock-tr{
-                        	/* font-family: 고딕; */
-                        	font-weight: bold;
-                        }
-                        </style>
                           <tr>
                             <th id="stock-tr"> 센터 </th>
                             <th id="stock-tr"> 테마 </th>
@@ -155,19 +133,26 @@
                         </thead>
                         
                         <tbody>
-                        <!-- db구현되면 servlet작성 후 list이용해서 for문으로 구현할것 -->
                   		 <%
-                   			for(Stock s : list) {
+                   			for(Stock s : list) 
+                   			{
                   		 %>
                    		<!-- 조회된 행이 있는 경우 -->
 			 	         <tr>
-<!-- 				selectStockList=select C_CODE, P_THEME, P_NAME, P_CODE, S_CAPA, S_AMOUNT from stock left join product using(P_CODE) order by P_THEME -->
             				<td data-toggle="tooltip">
-            				<% if(s.getcCode().equals("GG")){ %>
+						<% 
+            					if(s.getcCode().equals("GG"))
+            					{ 
+            			%>
             					<label class="badge badge-gradient-danger">경기광주</label>           					
-            				<% } else { %>
+            			<% 		}
+            					else 
+            					{ 
+            			%>
             					<label class="badge badge-gradient-info">대구</label>
-            				<% } %>
+            			<%
+            					} 
+            			%>
             				</td>
             				<td><%= s.getpTheme() %></td>
             				<td><%= s.getpCategory() %></td>
@@ -178,13 +163,24 @@
             					</a>
             				</td>
             				<td><%= s.getsCapa() %></td>
-            				<% if(s.getsCapa()>s.getsAmount()){ %> <!-- 재고량이 안전재고량보다 낮으면 빨간색, 높으면 파란색으로 표시 -->
+            				<% 
+            					if(s.getsCapa()>s.getsAmount()){ 
+            				%> 
+            				<!-- 재고량이 안전재고량보다 낮으면 빨간색, 높으면 파란색으로 표시 -->
             					<td style="color: red"><%= s.getsAmount() %></td>
-            				<% } else { %>
+            				<%
+            					} 
+            					else 
+            					{ 
+            				%>
             					<td style="color: blue"><%= s.getsAmount() %></td>
-            				<% } %>
+            				<%
+            					} 
+            				%>
            				</tr>
-                        <% }%>
+                        <%
+                     		  }
+                        %>
                       
                         </tbody>
                       </table>
@@ -197,7 +193,6 @@
                 </div>
               </div>
             </div>
-            <!-- </div> -->
 <!-- 레이어 팝업 시작 -->
 <div class="popup_panel">
 <div class="popup_bg"></div>
@@ -253,9 +248,6 @@ $(document).ready(function() {
         var temp = paramArr[i].split("="); //파라미터 변수명을 담음
         $("#"+searchs[i]).val(temp[1]);
     }
-	
-	// 센터명 호버했을때 한글설명나오게하기
-	/* $('[data-toggle="tooltip"]').tooltip(); */
 	
 	/*********** 레이어팝업 함수 시작 ***********/
     var $panel = $(".popup_panel");

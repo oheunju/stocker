@@ -69,10 +69,10 @@
                  <i class="mdi mdi-account-card-details"></i>
                </span> 내 정보 보기 </h3>
           	</div>
-	</div>
-	
-              
-<div class="col-md-6 grid-margin stretch-card"> 
+			</div>
+			
+		              
+			<div class="col-md-6 grid-margin stretch-card"> 
                 <div class="card" style="width: 100%; min-width: 100%;">
                   <div class="card-body" style="padding:1.0rem 3.5rem;">
                    <h4 class="card-title" style="margin-bottom: 50px; text-align: center; font-weight: bold">내 정보 보기</h4>

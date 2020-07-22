@@ -108,6 +108,41 @@
     <!-- container-scroller -->
 	<%@ include file="/WEB-INF/views/common/footerScript.jsp" %>
 	<script>
+	/* todo list 불러오기 */
+	$(function () {
+		let ecode =<%= eCode %>;
+		$.ajax({
+			url:"<%= request.getContextPath() %>/member/todo",
+			type:"get",
+			data:{ecode:ecode},
+			success:function(list){
+				// console.log("ajax 통신성공!");
+				
+				let result = "";
+				for(let i = 0; i < list.length; i++){
+					result += "<li " + (list[i].m_status == "C" ? "class='completed'" : "") + ">" + 
+								"<div class='form-check'>" +
+								"<label class='form-check-label'>" +
+								"<input type='checkbox' class='form-check-input checkbox' " + (list[i].m_status == "C" ? "checked" : "") + "> " + list[i].m_contents +
+								"<i class='input-helper'></i>" +
+								"<input type='hidden' class='m_code' value=" + list[i].m_code + ">" +
+								"<input type='hidden' value=" + list[i].m_status + ">" +
+								" </label>" +
+								 "</div>" + 
+								 "<i class='remove mdi mdi-close-circle-outline'></i>" + 
+								 "</li>";
+				};
+				
+				
+				$("ul#todolist").append(result);
+				
+				
+			},error:function(){
+				// console.log("ajax 통신실패!");
+			}
+		});
+	})
+	
 	/* todo 추가 */
     $('.todo-list-add-btn').on("click", function(event) {
     	let ecode =<%= eCode %>;
@@ -150,6 +185,7 @@
 	/* todo 상태변경 */
 	$('.todo-list').on('change', '.checkbox', function() {
 		let m_code = $(this).next().next().val();
+
 		let m_status = $(this).next().next().next().val();
 		
 		/* $(this).closest("li").toggleClass('completed'); */
@@ -168,39 +204,6 @@
 		
     });
 	
-	$(function () {
-		let ecode =<%= eCode %>;
-		$.ajax({
-			url:"<%= request.getContextPath() %>/member/todo",
-			type:"get",
-			data:{ecode:ecode},
-			success:function(list){
-				// console.log("ajax 통신성공!");
-				
-				let result = "";
-				for(let i = 0; i < list.length; i++){
-					result += "<li " + (list[i].m_status == "C" ? "class='completed'" : "") + ">" + 
-								"<div class='form-check'>" +
-								"<label class='form-check-label'>" +
-								"<input type='checkbox' class='form-check-input checkbox' " + (list[i].m_status == "C" ? "checked" : "") + "> " + list[i].m_contents +
-								"<i class='input-helper'></i>" +
-								"<input type='hidden' class='m_code' value=" + list[i].m_code + ">" +
-								"<input type='hidden' value=" + list[i].m_status + ">" +
-								" </label>" +
-								 "</div>" + 
-								 "<i class='remove mdi mdi-close-circle-outline'></i>" + 
-								 "</li>";
-				};
-				
-				
-				$("ul#todolist").append(result);
-				
-				
-			},error:function(){
-				// console.log("ajax 통신실패!");
-			}
-		});
-	})
 	
 	//경기광주 날씨api
 	$(function() {

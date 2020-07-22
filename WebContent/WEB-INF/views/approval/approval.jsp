@@ -77,8 +77,6 @@
 					<% if(empLoggedIn.geteDept().equals("경기물류") || empLoggedIn.geteDept().equals("대구물류"))
 						{
 					%>
-						<%-- <button type="button" class="btn btn-info btn-fw" style="margin-right: 27px;" data-target="progress-approval"
-							    onclick="location.href='<%= contextPath %>/approval?currentPage=1'"> 진행결재함 </button> --%>
 						<button type="button" class="btn btn-primary btn-fw" style="margin-right: 27px;" data-target="progress-approval"
 							    onclick="location.href='<%= contextPath %>/approval?currentPage=1'"> 재고 - 발주 진행결재함 </button>
 						<button type="button" class="btn btn-primary btn-fw" style="margin-right: 27px;" data-target="progress-approval"
@@ -92,13 +90,10 @@
 					</div>
 				</div>
 				
-				
 				<br clear="both">
 				
 				<div class="col-lg-12 grid-margin stretch-card" style="margin-top: 26px">
 				  <div class="card">
-				  
-					  
 					  <!-- 진행결재함 테이블 -->
   					<div class="card-body"  id="waiting-approval" style="padding-top: 2rem;">
 					  <h2 class="card-title"><i class="fa fa-calendar" aria-hidden="true"></i>&emsp;<%= today %></h2> 
@@ -119,11 +114,7 @@
 							if(empLoggedIn.geteDept().equals("발주"))
 							{
 								if (oList == null || oList.isEmpty()) {
-						%>
-						<!-- <tr>
-							<th colspan="5">조회된 행이 없습니다.</th>
-						</tr>	 -->			
-						<%
+								    
 								} else {
 								
 									for(Order o : oList) {
@@ -146,20 +137,14 @@
 						<%
 							if(empLoggedIn.geteDept().equals("경기물류") || empLoggedIn.geteDept().equals("대구물류"))
 							{
-						%>
-						<%
-								if (oList == null || oList.isEmpty()) {
-									%>
-									<!-- <tr>
-										<th  colspan="5" style="text-align:center;">조회된 행이 없습니다.</th>
-									</tr>	 -->			
-									<%
-											} else {
-												
+								if (oList == null || oList.isEmpty()) 
+								{
 											
-												for(Order o : oList) {
-												/* if(o.getcCode().equals("GG")) { */
-									%>
+								} 
+								else 
+								{
+									for(Order o : oList) {
+						%>
 									  <tr>
 											<td><label class="badge badge-warning"> 대기 </label></td>
 											<td> 발주요청 </td>
@@ -168,101 +153,38 @@
 											<td> <%= o.getoTitle() %> </td>
 											<td> <%= sdf2.format(o.getoDate()) %> </td>
 									  </tr>
-									<% 				}
-												} 
-											}
-										
-									%>
-						<%
-							
-								if (tList == null || tList.isEmpty()) {
-						%>
-						<!-- <tr>
-							<th  colspan="5" style="text-align:center;">조회된 행이 없습니다.</th>
-						</tr> -->				
-						<%
-								} else {
-									if(empLoggedIn.geteDept().equals("경기물류") || empLoggedIn.geteDept().equals("대구물류"))
-									{
-									for(Transfer t : tList) {
-						%>
-						  <tr>
-								<td><label class="badge badge-warning"> 대기 </label></td>
-								<td> 이송요청 </td>
-								<td><a href="#" onclick="window.open('<%=contextPath%>/stock/stockDetailForm?tCode=<%=t.gettCode()%>',
-				            			'_blank', 'top=1,left=500,width=1000,height=700')"> <%= t.gettCode() %> </a></td>
-								<td> <%= t.gettTitle() %> </td>
-								<td> <%= sdf2.format(t.gettDate()) %> </td>
-						  </tr>
-						<% 
-									} 
-								}
-								}	
-						%>
-						
-						<%-- 대구담당일 경우 --%>
-						<%-- <%
-							if(empLoggedIn.geteDept().equals("대구물류"))
-							{
-						%>
-						<%
-								if (oList == null || oList.isEmpty()) {
-									%>
-									<!-- <tr>
-										<th  colspan="5" style="text-align:center;">조회된 행이 없습니다.</th>
-									</tr>	 -->			
-									<%
-											} else {
-												
-											
-												for(Order o : oList) {
-												if(o.getcCode().equals("TK")) {
-									%>
-									  <tr>
-											<td><label class="badge badge-warning"> 대기 </label></td>
-											<td> 발주요청 </td>
-											<td><a href="#" onclick="window.open('<%=contextPath%>/product/stockOrderToBR?oCode=<%=o.getoCode()%>',
-				            						'_blank', 'top=1,left=500,width=1000,height=700')"> <%= o.getoCode() %> </a></td>
-											<td> <%= o.getoTitle() %> </td>
-											<td> <%= sdf2.format(o.getoDate()) %> </td>
-									  </tr>
-									<% 				}
-												} 
-											}
-										
-									%>
-						<%
-								if (tList == null || tList.isEmpty()) {
-						%>
-						<!-- <tr>
-							<th  colspan="5" style="text-align:center;">조회된 행이 없습니다.</th>
-						</tr> -->				
-						<%
-								} else {
-								
-									for(Transfer t : tList) {
-						%>
-						  <tr>
-								<td><label class="badge badge-warning"> 대기 </label></td>
-								<td> 이송요청 </td>
-								<td><a href="#" onclick="window.open('<%=contextPath%>/stock/stockDetailForm?tCode=<%=t.gettCode()%>',
-				            			'_blank', 'top=1,left=500,width=1000,height=700')"> <%= t.gettCode() %> </a></td>
-								<td> <%= t.gettTitle() %> </td>
-								<td> <%= sdf2.format(t.gettDate()) %> </td>
-						  </tr>
-						<% 
-									} 
-								}
+						<% 			}
+								} 
 							}
-						%> --%>
 						
+							if (tList == null || tList.isEmpty()) 
+							{
+							} 
+							else 
+							{
+							if(empLoggedIn.geteDept().equals("경기물류") || empLoggedIn.geteDept().equals("대구물류"))
+							{
+								for(Transfer t : tList) 
+								{
+						%>
+						  <tr>
+								<td><label class="badge badge-warning"> 대기 </label></td>
+								<td> 이송요청 </td>
+								<td><a href="#" onclick="window.open('<%=contextPath%>/stock/stockDetailForm?tCode=<%=t.gettCode()%>',
+				            			'_blank', 'top=1,left=500,width=1000,height=700')"> <%= t.gettCode() %> </a></td>
+								<td> <%= t.gettTitle() %> </td>
+								<td> <%= sdf2.format(t.gettDate()) %> </td>
+						  </tr>
+						<% 
+								} 
+							}
+						}	
+						%>
 						<!-- 조회 테이블이 이송테이블일 경우 -->
 							
 						<%
 							if(empLoggedIn.geteDept().equals("이송"))
 							{
-						%>
-						<%
 								if (tList == null || tList.isEmpty()) {
 						%>
 						<tr>
@@ -303,35 +225,32 @@
 							<i class="mdi mdi-chevron-left"></i>
 						<%
 							}
-						%>
-				
-						<%
 							for (int p = startPage; p <= endPage; p++) {
-						%>
-						<%
 								if (currentPage != p) {
 									if(flag == null) {
 						%>
 						<a href='<%=contextPath%>/approval?currentPage=<%=p%>' style='color:#b66dff'> <%= p %> </a>
 						<%
-									} else {
+									} 
+									else 
+									{
 						%>
 						<a href='<%=contextPath%>/approval/complete/?currentPage=<%=p%>&flag='C' style='color:#b66dff'> <%= p %> </a>
 						<%
 									}
-								} else {
+								} 
+								else 
+								{
 						%>
 						<span class='cPage' style='color:#b66dff; font-weight: bold;'><%= p %></span>
 						<%
 								}
-						%>
-						<%
 							}
-						%>
-				
-						<%
-							if(maxPage != 0) {
-								if (currentPage != maxPage) {
+							
+							if(maxPage != 0) 
+							{
+								if (currentPage != maxPage) 
+								{
 						%>
 						<a href="<%=contextPath%>/approval?currentPage=<%=currentPage + 1%>" style='color:#b66dff'>
 							<i class="mdi mdi-chevron-right"></i>
@@ -345,49 +264,56 @@
 						%>
 					</div>
 					
-					<% } %>
+						<% 
+						} 
+						%>
 					
 					<!-- 이송리스트 페이징 -->
-					<% if(tList != null) { %>
+					<% 
+						if(tList != null) 
+						{ 
+					%>
 					<div class="pagingArea" align="center" style="padding-bottom: 2%;">
-						<%
-							if (currentPage != 1) {
-						%>
+					<%
+							if (currentPage != 1) 
+							{
+					%>
 						<a href="<%=contextPath%>/approval/stt?currentPage=1" style='color:#b66dff'>
 							<i class="mdi mdi-chevron-double-left" style='color:#b66dff'></i>
 						<a href="<%=contextPath%>/approval/stt?currentPage=<%=currentPage - 1%>" style="color:#b66dff">
 							<i class="mdi mdi-chevron-left"></i>
 						<%
 							}
-						%>
-				
-						<%
-							for (int p = startPage; p <= endPage; p++) {
-						%>
-						<%
-								if (currentPage != p) {
-									if(flag == null) {
+							
+							for (int p = startPage; p <= endPage; p++) 
+							{
+								if (currentPage != p) 
+								{
+									if(flag == null) 
+									{
 						%>
 						<a href='<%=contextPath%>/approval/stt?currentPage=<%=p%>' style='color:#b66dff'> <%= p %> </a>
 						<%
-									} else {
+									} 
+									else 
+									{
 						%>
 						<a href='<%=contextPath%>/approval/complete/?currentPage=<%=p%>&flag='C' style='color:#b66dff'> <%= p %> </a>
 						<%
 									}
-								} else {
+								} 
+								else 
+								{
 						%>
 						<span class='cPage' style='color:#b66dff; font-weight: bold;'><%= p %></span>
 						<%
 								}
-						%>
-						<%
 							}
-						%>
-				
-						<%
-							if(maxPage != 0) {
-								if (currentPage != maxPage) {
+							
+							if(maxPage != 0) 
+							{
+								if (currentPage != maxPage) 
+								{
 						%>
 						<a href="<%=contextPath%>/approval/stt?currentPage=<%=currentPage + 1%>" style='color:#b66dff'>
 							<i class="mdi mdi-chevron-right"></i>
@@ -401,7 +327,9 @@
 						%>
 					</div>
 					
-					<% } %>
+					<%
+						} 
+					%>
 					
 					
 					

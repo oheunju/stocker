@@ -133,12 +133,17 @@
                         </thead>
                         
                         <tbody>
-                        <% if(wList == null || wList.isEmpty()) { %>
+                        <% 
+                     	   if(wList == null || wList.isEmpty()) { 
+                        %>
                   		<tr>
    							<th colspan="6">조회된 행이 없습니다.</th>
                   		</tr>
-                       <% } else {
-                       		for(Warehousing w : wList) {%>
+                       <%
+							} else {
+	                          
+								for(Warehousing w : wList) {
+                    	%>
                        		
                          <tr>
                            <td> <%= w.getwCode() %> </td>
@@ -155,8 +160,10 @@
                            <td> <%= sdf.format(w.getwDate()) %> </td>
                          </tr>
                          
-                        <% } 
-                        } %> 
+                        <%
+                        		} 
+                        	} 
+                        %> 
                         </tbody>
                       </table>
                     </div>
@@ -174,15 +181,10 @@
 						</a>
 						<%
 							}
-						%>
-
-						<%
 							for (int p = startPage; p <= endPage; p++) {
-						%>
-						<%
+							    
 								if (currentPage != p) {
-						%>
-					   <%
+								    
 									if(search == null) {
 						%> 
 						<a href='<%=contextPath%>/product/warehousing?currentPage=<%=p%>' style='color:#b66dff'> <%= p %> </a>
@@ -192,19 +194,13 @@
 						<a href='<%=contextPath%>/product/searchWarehousing?currentPage=<%=p%>&search=<%=search[0]%>&search=<%=search[1]%>&search=<%=search[2]%>&search=<%=search[3]%>' style='color:#b66dff'> <%= p %> </a>
 						<%
 									}
-						%>
-						<%
 								} else {
 						%>
 						<span class='cPage' style='color:#b66dff'><%= p %></span>
 						<%
 								}
-						%>
-						<%
 							}
-						%>
-
-						<%
+						
 							if(maxPage != 0) 
 							{
 								if (currentPage != maxPage) 

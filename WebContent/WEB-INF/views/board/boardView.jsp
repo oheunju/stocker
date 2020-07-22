@@ -55,8 +55,6 @@
                   <i class="mdi mdi-bulletin-board" style="text-decoration:none; color:#fff;"></i>
                 </span> 게시판</h3>
             </div>
-            
-            
             <!-- 콘텐츠영역 -->
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -226,7 +224,7 @@
                 </div>
               </div>
 
-	</div>
+			</div>
 <!-- content-wrapper ends -->
     	   <%@ include file="../common/footer.jsp" %>
           <!-- partial -->

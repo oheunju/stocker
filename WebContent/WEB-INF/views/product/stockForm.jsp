@@ -62,13 +62,6 @@ input {
         <div class="main-panel" style="width: 100%;">
           <div class="content-wrapper">
               <i class="mdi mdi-close" id="bannerClose" style="display: none;"></i>
-              
-              
-              
-              
-          <%-- Contents --%>
-          
-          
           <div style="padding-right: 20px;">
 	          <div style="float:left; display: inline-block; margin-top: 48px; margin-left: 26px;"><h1 class="display-1 kor"> 이송요청서 </h1></div>
 			  <div class="card" style="display: inline-block; margin-top: 26px; width:148px; float:right" >
@@ -95,13 +88,6 @@ input {
 						<th><input type="text" name="tTitle" id="tTitle" class="form-control kor" 
 								   placeholder="제목을 입력하세요." required/></th>
 					  </tr>
-					  <%--  <tr>
-						<th class="kor"><strong>품의 제목</strong></th>
-						<th><input type="text" name="tTitle" id="tTitle" class="form-control kor" 
-								   value="<%= stock.gettTitle() %>" readonly="readonly" required/></th>
-					  </tr> --%>
-						
-					   
 					</thead>
 					<tbody>
 					  <tr>
@@ -111,28 +97,6 @@ input {
 							<div class="form-group">	
 							<label style="padding-top: 3%;">상품코드</label>
 								<input type="text" class="form-control" name="pCode" id="pCode" style="width: 20%; margin-left: 10%; display: inline-block;" placeholder=""/>
-							
-								<!-- <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" id="addProductBtn" style="float: right; margin-bottom: 4%; margin-right:6.5%;">
-									<i class="mdi mdi-library-plus"></i>
-								</button>
-								 -->
-								
-								<!-- <table class="table product" id="addProductTable">
-								   <thead>
-									<tr style="border-color: white;">
-									  <th style="width: 11%;"> <input type="checkbox" id="selectAll" onclick="selectAllCheckBox();"/> </th>
-									  <th> 상품코드 </th>
-									  <th style="width: 21%;"> 상품명 </th>
-									  <th> 수량 / 단위:box(x개) </th>
-									  <th><button type="button" class="btn btn-inverse-danger btn-rounded btn-icon" id="deleteItem" onclick="deleteCheckedItem();">
-										<i class="mdi mdi-delete-forever"></i>
-									</button></th>
-									</tr>
-								   </thead>
-								   <tbody>
-								   
-								   </tbody>
-								</table> -->
 								
 							</div>
 							<div class="form-group">
@@ -143,11 +107,20 @@ input {
 							<label for="departure">출발센터(요청할 센터)</label>
 							  <select class="form-control" name="departureCode" id="departureCode" onchange="selectCenter();" required>
 								<option disabled selected>출발지</option>
-								<%if(user.geteDept().equals("대구물류")) {%>
+								<%
+									if(user.geteDept().equals("대구물류")) 
+									{
+								%>
 								<option value="GG">경기광주센터</option>
-								<%} else if (user.geteDept().equals("경기물류")) {%>
+								<%
+									} 
+									else if (user.geteDept().equals("경기물류")) 
+									{
+								%>
 								<option value="TK">대구센터</option>
-								<%} %>
+								<%
+									} 
+								%>
 							  </select>
 						  </div>
 						  <div class="form-group">
@@ -162,19 +135,8 @@ input {
 								<%} %>
 							  </select>
 						  </div>
-						  <!-- <div class="form-group">
-						  <label style="padding-top: 3%;">요청일</label>
-						<input type="date" class="form-control" name="tDate" id="tDate" readonly/>
-<script>
-  document.getElementById('tDate').valueAsDate = new Date();
-</script>
-						</div> -->
 						</th>
 					  </tr>
-					 <!--  <tr>
-						<th class="kor"><strong>비고</strong></th>
-						<td><textarea class="form-control" name="comment" id="comment" cols="30" rows="10" placeholder="메모를 입력하세요."></textarea></td>
-					  </tr> -->
 					</tbody>
 				  </table>
 				</div>

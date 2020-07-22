@@ -114,18 +114,6 @@ color: #B66DFF;
                               	첨부파일 삭제
 						</span>
 						<% } %>
-						<%-- <!-- 첨부파일 삭제 버튼 -->
-						<% if(b.getBoardOriginalFileName() != null) { %>
-							<div class="form-check" style="margin: 10px 30px;"> 
-                              <label for="delFile" class="form-check-label">
-                              	<input type="checkbox" name="delFile" id="delFile" class="form-check-input" style="margin-top:10px;"/>
-                              	첨부파일 삭제
-                              </label>
-                            </div>
-							<!-- <input type="checkbox" name="delFile" id="delFile" style="margin-top:10px;"/> -->
-							<!-- <label for="delFile">첨부파일 삭제</label> -->
-							
-						<% } %> --%>
 					</td>
 				</tr>		
 				<tr>
@@ -146,12 +134,8 @@ color: #B66DFF;
                 </div>
               </div>
 			</form>
-			
 			</section>
-
-
-
-</div>
+			</div>
 <!-- content-wrapper ends -->
     	   <%@ include file="../common/footer.jsp" %>
           <!-- partial -->

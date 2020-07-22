@@ -69,7 +69,6 @@ function boardValidate(){
 						<table id="tbl-board-view" class="table" style="width:70%; margin: 0px auto;">
 						<tr>
 							<td><input type="text" name="boardTitle" class="form-control form-control-lg" placeholder="제목을 입력하세요." required></td>
-							
 						</tr>
 						<tr>
 							<td>
@@ -96,7 +95,7 @@ function boardValidate(){
                   </div>
                 </div>
               </div>
-</div>
+			</div>
 <!-- content-wrapper ends -->
     	   <%@ include file="../common/footer.jsp" %>
           <!-- partial -->

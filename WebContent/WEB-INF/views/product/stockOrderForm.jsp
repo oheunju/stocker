@@ -36,20 +36,12 @@ input {
 
   </head>
   <body>
-<!--     <div class="container-scroller"> -->
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial -->
         <div class="main-panel" style="width: 100%;">
           <div class="content-wrapper">
               <i class="mdi mdi-close" id="bannerClose" style="display: none;"></i>
-              
-              
-              
-              
-          <%-- Contents --%>
-          
-          
           <div style="padding-right: 20px;">
 	          <div style="float:left; display: inline-block; margin-top: 48px; margin-left: 26px;"><h1 class="display-1 kor"> 발주서 </h1></div>
 			  <div class="card" style="display: inline-block; margin-top: 26px; width:148px; float:right" >
@@ -88,28 +80,6 @@ input {
 						<!-- <th><strong>발주 내용</strong></th> -->
 							<div class="form-group">	
 							
-								
-								<%-- <!-- <table class="table product" id="addProductTable"> -->
-								   <thead>
-									<tr>
-									
-									 <th class="kor"><strong>상품 코드</strong></th>
-									 <th><input type="text" name="pCode" id="pCode" class="form-control kor" 
-								   		 value="<%= order.getpCode() %>" required disabled
-								   		 style="width: 30%"/></th>
-								   		
-									 <th class="kor"><strong>상품명</strong></th>
-									 <input type="text" name="pName" id="pName" class="form-control kor" 
-								  		 value="<%= product.getpName() %>" required disabled
-								  		 style="width: 30%"/>
-									 
-									 <th class="kor"><strong>수량</strong></th>
-									 <input type="text" name="rAmount" id="rAmount" class="form-control kor" 
-								   		 value="<%= order.getoAmount() %>" required disabled
-								   		 style="width: 30%"/>
-								  	
-									</tr>
-								   </thead> --%>
 								    <div class="form-group"> 
 								    <tr>
 										<th class="kor"><strong>상품 코드</strong></th>
@@ -148,29 +118,9 @@ input {
 								   		</tr>	
 						  			</div>
 								   <tbody>
-								   
-										<%-- <tr> 
-											<th name="pCode" id="pCode" style="font-weight: 400;"><%= order.getpCode() %></th> 
-											<th style="font-weight: 400;"><%= product.getpName() %></th> 
-											<th name="rAmount" id="rAmount" style="font-weight: 400;"><%= order.getoAmount() %></th> 
-											
-										</tr> --%>
-										
-									
 								   </tbody>
 								<!-- </table> -->
 							</div>
-					  	 <%--  <div class="form-group"> 
-							<label for="shop">주문매장</label>
-							
-								<input type="text"class="form-control kor" value="<%= shop.getsName() %>" disabled >
-							
-						  </div>
-						  <div class="form-group">
-							<label for="center">출고센터</label>
-							<input type="text" id="center" name="center" class="form-control" placeholder="주문매장을 선택하세요." 
-								   value="<%= cName %>" readonly>
-						  </div> --%>
 						  </th>
 						</tr>
 					  

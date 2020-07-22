@@ -72,16 +72,8 @@
 						</div>
 
 
-						<%-- Contents --%>
-
-
-
 						<div
 							style="display: inline-block; width: 50%; text-align: right; padding-right: 40px;">
-							<!-- <button type="button" class="btn btn-inverse-info btn-rounded btn-icon" style="margin-right: 25px;"
-	                		data-toggle="tooltip" data-placement="top" title="납품계약서 다운로드">
-					  <i class="mdi mdi-file-word"></i>
-					</button> -->
 							<button type="button" 
 								class="btn btn-inverse-success btn-rounded btn-icon"
 								data-toggle="tooltip" data-placement="top" title="발주 엑셀폼 다운로드">
@@ -283,37 +275,30 @@
 									</a>
 									<%
 										}
-									%>
-
-									<%
 										for (int p = startPage; p <= endPage; p++) {
-									%>
-									<%
+										    
 											if (currentPage != p) {
-									%>
-									<%
+											    
 												if(search == null) {
 									%>
 									<a href='<%=contextPath%>/order/ordr?currentPage=<%=p%>' style='color:#b66dff'> <%= p %> </a>
 									<%
-												} else {
+												} 
+												else
+												{
 									%>
 									<a href='<%=contextPath%>/order/searchCompleteOrder?currentPage=<%=p%>&search=<%=search[0]%>&search=<%=search[1]%>&search=<%=search[2]%>&search=<%=search[3]%>&search=<%=search[4]%>&search=<%=search[5]%>' style='color:#b66dff'> <%= p %> </a>
 									<%
 												}
-									%>
-									<%
-											} else {
+											} 
+											else 
+											{
 									%>
 									<span class='cPage' style='color:#b66dff; font-weight: bold;'><%= p %></span>
 									<%
 											}
-									%>
-									<%
 										}
-									%>
-
-									<%
+										
 										if(maxPage != 0) 
 										{
 											if (currentPage != maxPage) 

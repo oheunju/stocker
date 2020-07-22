@@ -67,11 +67,8 @@
                  <i class="mdi mdi-car"></i>
                </span> 이 송 </h3>
           	</div>
-	</div>
-	
-        <%-- Contents --%>
-        
- <div class="col-12">
+		</div>
+		 <div class="col-12">
             <div class="card">
               <div class="card-body">
                 <form action="<%=contextPath %>/order/transferSearch" id="searchForm" class="form-sample">
@@ -164,62 +161,78 @@
             <th><strong>이송일</strong></th>
                      </tr>
                    </thead>
-                   <%if(transferList == null || transferList.isEmpty()) { %>
+                   <%
+	                   if(transferList == null || transferList.isEmpty()) 
+	                   { 
+                   %>
                    <!-- 조회된 행이 없는 경우 -->
                    <tr>
                    	<th colspan="7" style="text-align:center">조회된 행이 없습니다.</th>
                    </tr>
-                   <%} else { 
-                   		for(Transfer t : transferList) {
+                   <%
+	                   } 
+					   else 
+					   { 
+	                   		for(Transfer t : transferList) 
+	                   		{
                    %>
-                   <!-- 조회된 행이 있는 경우 -->
-          <tr>
-            <td><a href="#" onclick="window.open('<%= contextPath %>/order/transferView?tCode=<%=t.gettCode() %>',
-		            			'_blank','top=1,left=500,width=1000,height=700')"><%= t.gettCode() %></a></td>
-            <td>
-            <a href="javascript:void(0)" class="btn_popup_open">
-             <%=t.getpCode() %>
-            </a>
-            </td>
-            <%-- <td id="status">
-            <%if (t.gettStatus().equals("이송입고")) {%>
-            	<label class="badge badge-gradient-warning">이송</label>
-            	<label class="badge badge-gradient-info">입고</label>
-            	<%} else if (t.gettStatus().equals("이송출고")){%>
-            	<label class="badge badge-gradient-warning">이송</label>
-            	<label class="badge badge-gradient-danger">출고</label>
-            	<%} %>
-            </td> --%>
-            
-            <td data-toggle="tooltip" data-placement="top"
-            	title=<%=t.getDepartureCode().equals("TK") ? "대구센터" : "경기"+"광주센터" %>>
-            	
-            	<%if(t.getDepartureCode().equals("TK")) {%> 
-            		<label class="badge badge-gradient-info">대구</label>
-            	<%} else { %>
-            		<label class="badge badge-gradient-danger">경기광주</label>
-            	<% } %>
-            	</td>
-            	<!-- 화살표 시작 -->
-            	<td> <i class="mdi mdi-chevron-double-right"></i> </td>
-            	<!-- 화살표 끝 -->
-             <td data-toggle="tooltip" data-placement="top"
-            	title=<%=t.getDestinationCode().equals("TK") ? "대구센터" : "경기"+"광주센터" %>>
-            	
-            	<%if(t.getDestinationCode().equals("TK")) {%> 
-            		<label class="badge badge-gradient-info">대구</label>
-            	<%} else { %>
-            		<label class="badge badge-gradient-danger">경기광주</label>
-            	<% } %>
-            	</td>
-            	
-            <td><%=t.gettAmount()%></td>
-            <td><%=t.gettDate() %></td>
-          </tr>
-        </tbody>
+				                   <!-- 조회된 행이 있는 경우 -->
+				          <tr>
+				            <td><a href="#" onclick="window.open('<%= contextPath %>/order/transferView?tCode=<%=t.gettCode() %>',
+						            			'_blank','top=1,left=500,width=1000,height=700')"><%= t.gettCode() %></a></td>
+				            <td>
+				            <a href="javascript:void(0)" class="btn_popup_open">
+				             <%=t.getpCode() %>
+				            </a>
+				            </td>
+				            <td data-toggle="tooltip" data-placement="top"
+				            	title=<%=t.getDepartureCode().equals("TK") ? "대구센터" : "경기"+"광주센터" %>>
+				            	
+			       <%
+				            	if(t.getDepartureCode().equals("TK")) 
+				            	{
+			       %> 
+				            		<label class="badge badge-gradient-info">대구</label>
+            	   <%
+			            	    }
+						        else 
+						        { 
+			       %>
+            						<label class="badge badge-gradient-danger">경기광주</label>
+            	   <% 
+            	   				} 
+            	   %>
+			            	</td>
+			            	<!-- 화살표 시작 -->
+			            	<td> <i class="mdi mdi-chevron-double-right"></i> </td>
+			            	<!-- 화살표 끝 -->
+			                <td data-toggle="tooltip" data-placement="top"
+			            	title=<%=t.getDestinationCode().equals("TK") ? "대구센터" : "경기"+"광주센터" %>>
+				            	
+            	  <%
+            				  if(t.getDestinationCode().equals("TK")) 
+            				  {
+            	  %> 
+            					<label class="badge badge-gradient-info">대구</label>
+            	  <%
+            	  			  }
+            	  			  else 
+            	  			  { 
+            	  %>
+            					<label class="badge badge-gradient-danger">경기광주</label>
+            	  <%
+            	  			  } 
+            	  %>
+			            	</td>
+			            <td><%=t.gettAmount()%></td>
+			            <td><%=t.gettDate() %></td>
+			          </tr>
+			        </tbody>
         
-        <% }
-}%>
+				<% 
+							}
+						}
+				%>
                  </table>
                  <!-- 페이징처리 -->
                  	<div id='pageBar'>

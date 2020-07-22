@@ -111,9 +111,9 @@ function chkPwd(str){
                  <i class="mdi mdi-lock info"></i>
                </span> 비밀번호 변경 </h3>
           	</div>
-	</div>
+		</div>
               
-<div class="col-md-6 grid-margin stretch-card"> 
+			<div class="col-md-6 grid-margin stretch-card"> 
                 <div class="card" style="width: 100%; min-width: 100%;">
                   <div class="card-body" style="padding:1.0rem 3.5rem;">
                     <h3 class="card-title" style="margin-bottom: 50px; text-align: center; font-weight: bold">현재 비밀번호와 새 비밀번호를 입력해주세요.</h3>

@@ -60,12 +60,6 @@ input {
           <div class="content-wrapper">
               <i class="mdi mdi-close" id="bannerClose" style="display: none;"></i>
               
-              
-              
-              
-          <%-- Contents --%>
-          
-          
           <div style="padding-right: 20px;">
 	          <div style="float:left; display: inline-block; margin-top: 48px; margin-left: 26px;"><h1 class="display-1 kor"> 발주서 </h1></div>
 			  <div class="card" style="display: inline-block; margin-top: 26px; width:148px; float:right" >

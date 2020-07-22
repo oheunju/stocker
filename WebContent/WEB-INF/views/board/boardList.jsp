@@ -114,10 +114,6 @@
 					onclick="location.href='<%= request.getContextPath() %>/board/boardForm';" 
 					class="btn btn-link board-btn" style="padding-left:0px;">
             <i class="mdi mdi-lead-pencil" style="font-size:22px"></i></button>
-			<%-- <button type="button" value="글쓰기" id="btn-add" 
-					onclick="location.href='<%= request.getContextPath() %>/board/boardForm';" 
-					class="btn btn-gradient-primary btn-lg btn-block">
-            <i class="mdi mdi-note-plus"></i>글쓰기</button> --%>
 			<% } %>
 			<button type="button" onclick="location.href='<%= request.getContextPath() %>/board/boardList'"
 					class="btn btn-link board-btn">

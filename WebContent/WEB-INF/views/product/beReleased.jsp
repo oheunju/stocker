@@ -150,34 +150,50 @@
                         <tbody>
                         <!-- db구현되면 servlet작성 후 list이용해서 for문으로 구현할것 -->
                         <!-- 가상테이블 -->
-                        <% if(brList == null || brList.isEmpty()) { %>
+                        <%
+	                        if(brList == null || brList.isEmpty()) 
+	                        { 
+                        %>
                   		<tr>
    							<th colspan="6">조회된 행이 없습니다.</th>
                   		</tr>
-                       <% } else {
-                       		for(BeReleased br : brList) {%>
+                       <%
+	                       } 
+	                        else 
+	                        {
+	                       		for(BeReleased br : brList) 
+	                       		{
+                       	%>
                        		
                          <tr>
                            <td> R<%= br.getrCode() %> </td>
                            <td> <%= br.getpCode() %> </td>
                            <td> <%= br.getrAmount() %> </td>
                            
-                           <% if(br.getrReason().equals("매장출고")) { %>
+                           <%
+                       			    if(br.getrReason().equals("매장출고")) { 
+                           %>
                            <td> <label class="badge badge-gradient-danger">매장출고</label> </td>
-                           <% } else { %>
+                           <%
+                         		    } 
+                       			    else 
+                       			    { 
+                           %>
                            <td> <label class="badge badge-gradient-success">이송출고</label> </td>
-                           <% } %>
+                           <%
+                           			} 
+                           %>
                            <%-- <td> <%= br.getrReason() %> </td> --%>
                            
                            <td> <%= sdf.format(br.getrDate()) %> </td>
                          </tr>
                          
-                        <% } 
-                        } %> 
+                        <%
+                        			} 
+                        	} 
+                        %> 
                         </tbody>
                       </table>
-                      
-                      
                       <!-- 페이징 -->
                       <div id='pageBar'>
                  		<%= pageBar %>
@@ -204,8 +220,6 @@
 	<%@ include file="../common/footerScript.jsp" %>
   </body>
   <script>
-  /* document.getElementById('r-date').valueAsDate = new Date();
-  document.getElementById('r-date2').valueAsDate = new Date(); */
   	
   </script>
 </html>

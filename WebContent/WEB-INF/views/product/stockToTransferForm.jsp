@@ -79,35 +79,25 @@ input {
 				<div class="card-body">
 				  <table class="table">
 					<thead>
-						
 					  <tr>
 						<th class="kor"><strong>품의 제목</strong></th>
 						<th><input type="text" name="tTitle" id="tTitle" class="form-control kor" 
 								   placeholder="제목을 입력하세요." value="<%= t.gettTitle() %>" readonly="readonly" required/></th>
 					  </tr>
-					
-						
-					   
 					</thead>
 					<tbody>
 					  <tr>
 						<th><strong>발주 내용</strong></th>
 						<th>
-						
 							<div class="form-group">	
 							<label style="padding-top: 3%;">이송코드</label>
 								<input type="text" class="form-control" name="tCode" id="tCode" style="width: 20%; margin-left: 10%; display: inline-block;" placeholder=""
 									value="<%= t.gettCode() %>" readonly="readonly"/>
-							
-								
 							</div>
-						
 							<div class="form-group">	
 							<label style="padding-top: 3%;">상품코드</label>
 								<input type="text" class="form-control" name="pCode" id="pCode" style="width: 20%; margin-left: 10%; display: inline-block;" placeholder=""
 									value="<%= t.getpCode() %>" readonly="readonly"/>
-							
-								
 							</div>
 							<div class="form-group">
 							<label style="padding-top: 3%;">요청수량</label>
@@ -117,39 +107,43 @@ input {
 					  	  <div class="form-group"> 
 							<label for="departure">출발센터</label>
 							 
-							 <% if(t.getDepartureCode().equals("GG")) { %>
+							 <%
+								 if(t.getDepartureCode().equals("GG")) { 
+							 %>
 								<input type="text" class="form-control" name="departureCode" id="departureCode" style="width: 40%; margin-left: 10%; display: inline-block;" placeholder=""
 									value="경기광주재고센터" readonly="readonly"/>
-							<%} else if(t.getDepartureCode().equals("TK")) { %>
+							<%
+								} 
+								 else if(t.getDepartureCode().equals("TK")) 
+								 { 
+							%>
 							<input type="text" class="form-control" name="departureCode" id="departureCode" style="width: 40%; margin-left: 10%; display: inline-block;" placeholder=""
 									value="대구재고센터" readonly="readonly"/>
-							<% } else %>
-							
+							<%
+								}
+							%>
 						  </div>
 						  <div class="form-group">
 							<label for="destination">도착센터</label>
 							  <!-- <select class="form-control" name="departure" id="center2" required> -->
-							  <% if(t.getDestinationCode().equals("GG")) { %>
+							  <% 
+							 	 if(t.getDestinationCode().equals("GG"))
+								{ 
+							  %>
 								<input type="text" class="form-control" name="destinationCode"" id="destinationCode"" style="width: 40%; margin-left: 10%; display: inline-block;" placeholder=""
 									value="경기광주재고센터" readonly="readonly"/>
-								<%} else if(t.getDestinationCode().equals("TK")) { %>
+							  <%} 
+							 	 else if(t.getDestinationCode().equals("TK")) 
+							 	 { 
+							  %>
 								<input type="text" class="form-control" name="destinationCode"" id="destinationCode"" style="width: 40%; margin-left: 10%; display: inline-block;" placeholder=""
 									value="대구재고센터" readonly="readonly"/>
-								<%} else %>
+							  <%
+							   	 } 
+							   %>
 						  </div>
-						  <!-- <div class="form-group">
-						  <label style="padding-top: 3%;">요청일</label>
-						<input type="date" class="form-control" name="tDate" id="tDate" readonly/>
-<script>
-  document.getElementById('tDate').valueAsDate = new Date();
-</script>
-						</div> -->
 						</th>
 					  </tr>
-					 <!--  <tr>
-						<th class="kor"><strong>비고</strong></th>
-						<td><textarea class="form-control" name="comment" id="comment" cols="30" rows="10" placeholder="메모를 입력하세요."></textarea></td>
-					  </tr> -->
 					</tbody>
 				  </table>
 				</div>
@@ -160,19 +154,25 @@ input {
 			  <h6 class="kor"><%= today %></h6>
 			  <br />
 			  
-			  <%
-					if(empLoggedIn.geteDept().equals("이송")) {			
+			    <%
+					if(empLoggedIn.geteDept().equals("이송")) 
+					{			
 				%>
 			   <button type="submit" class="btn btn-gradient-primary btn-icon-text kor" style="float: right;"
 			   		   onsubmit="submitApproval();">
 				<i class="mdi mdi-file-check btn-icon-prepend" ></i> 결재 </button>
 				
-				<% } else { %>
+				<%
+					} 
+					else 
+					{ 
+				%>
 				<button type="submit" class="btn btn-gradient-primary btn-icon-text kor" style="float: right;"
 			   		   onsubmit="submitApproval();" disabled="disabled">
 				<i class="mdi mdi-file-check btn-icon-prepend" ></i> 결재 </button>
-				<% } %>
-				
+				<%
+					} 
+				%>
 			</div>
 			</form>
           <!-- content-wrapper ends -->
@@ -182,83 +182,8 @@ input {
       </div>
       <!-- page-body-wrapper ends -->
     </div>
-    
-    
-    
-    
-    
-    
     <!-- container-scroller -->
     <%@ include file="../common/footerScript.jsp" %>
-    <script>
- 
-    
-    /* 출발센터 선택 시 자동으로 도착센터가 정해짐 */
-/*     function selectCenter() {
-    	let $departureCode = $("#departureCode").val();
-    	let departureCodeNum =parseInt($departureCode.substring(1, 4));
-    	
-    	if(departureCodeNum == 1)
-    		$("#destinationCode").val("대구센터");
-    	else
-    		$("#destinationCode").val("경기광주센터");
-    } */
-    /* 수량체크 */
-   /*  function numCheck(e){
-    	if(e.value == 0) {
-    		if(document.activeElement != e) {
-    			alert("수량을 입력하세요.");
-    		}
-    		e.select();
-    	}
-    	else if(e.value > 100){
-    		alert("수량은 100박스 이하로 입력해주세요.");
-    		return false;
-    	}
-    } */
-    
-    /* 발주서 작성 완료 */
-/*   	function submitApproval() {
-    	let $tTitle = $("input[name='tTitle']");
-    	let $pCode = $("input[name='pCode']");
-    	let $tAmount = $("input[name='tAmount']");
-    	let $departureCode = $("input[name='departureCode']");
-    	let $detinationCode = $("input[name='detinationCode']");
-    	let $tDate= $("input[name='tDate']");
-		
-    	for(let i = 0; i<$tAmount.length; i++) {
-    		if($tAmount[i].value == "") {
-    			alert("수량을 입력하세요.");
-    			$tAmount[i].select();
-    			return false;
-    		}
-    	}
-    	
-    	$("#stockForm").submit();
-    }; */
-    
-  
-
-    </script>
-    <script>
-  /*   $(function(){
-	$("[name=stockFrom]").submit(function(){
-
-		let $tTitle = $("#tTitle"); 
-		let $pCode = $("#pCode");
-		let $tAmount = $("#tAmount");
-		let $departureCode = $("#departureCode");
-		let $destinationCode = $("#destinationCode");
-		let $tDate = $("#tDate");
-		
-		
-		
-		return true;
-	});
-});
- */
-
-</script>
   </body>
 </html>
 		
