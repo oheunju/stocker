@@ -26,4 +26,17 @@
     <!--
     <Manager pathname="" />
     -->
+    
+    
+        <!-- DBCP자원 등록 -->
+    <Resource name="myoracle"
+    		  auth="Container"
+    		  type="javax.sql.DataSource"
+    		  driverClassName="oracle.jdbc.OracleDriver"
+    		  url="jdbc:oracle:thin:@localhost:1521:xe"
+    		  username="stocker"
+    		  password="stocker"
+    		  maxTotal="20"
+    		  maxIdle="10"
+    		  maxWait="-1"/>
 </Context>
