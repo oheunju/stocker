@@ -1,16 +1,18 @@
 <%@page import="member.model.vo.Employee"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%
 	Employee empLoggedIn = (Employee) session.getAttribute("empLoggedIn");
 %>
-
 <!DOCTYPE html>
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-    <a class="navbar-brand brand-logo" href="<%= request.getContextPath() %>/index.jsp"><img src="<%=  request.getContextPath() %>/resources/bootstrap/images/logo.png" alt="logo" /></a>
-    <a class="navbar-brand brand-logo-mini" href="<%= request.getContextPath() %>/index.jsp"><img src="<%=  request.getContextPath() %>/resources/bootstrap/images/logo-mini.svg" alt="logo" /></a>
+    <a class="navbar-brand brand-logo" href="<%= request.getContextPath() %>/index.jsp"><img src="<%= request.getContextPath() %>/resources/bootstrap/images/logo.png" alt="logo" /></a>
+    <a class="navbar-brand brand-logo-mini" href="<%= request.getContextPath() %>/index.jsp"><img src="<%= request.getContextPath() %>/resources/bootstrap/images/logo-mini.svg" alt="logo" /></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-stretch">
     <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -22,9 +24,14 @@
       <li class="nav-item nav-profile dropdown" style="margin-top: 2%;">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-text" >
-          <%if(empLoggedIn != null){%>
-          <p class="mb-1 text-black" onclick="location.href='<%= request.getContextPath() %>/member/infoView?eCode=<%=empLoggedIn.geteCode()%>'"><%=empLoggedIn.geteDept()%> <strong><%=empLoggedIn.geteName() %></strong></p>
-          <%}%>
+          <%
+          	if(empLoggedIn != null)
+          	{
+          %>
+	          <p class="mb-1 text-black" onclick="location.href='<%= request.getContextPath() %>/member/infoView?eCode=<%= empLoggedIn.geteCode() %>'"><%= empLoggedIn.geteDept() %> <strong><%= empLoggedIn.geteName() %></strong></p>
+          <%
+          	}
+          %>
           </div>
         </a>
       </li>
@@ -34,12 +41,12 @@
         </a>
       </li>
 	  <li class="nav-item">
-	    <a class="nav-link" href="<%= request.getContextPath()%>/board/boardList">
+	    <a class="nav-link" href="<%= request.getContextPath() %>/board/boardList">
 	  	<i class="mdi mdi-bulletin-board"></i>
 	    </a>
 	  </li>
       <li class="nav-item nav-logout d-none d-lg-block">
-        <a class="nav-link" href="<%= request.getContextPath()%>/member/logout">
+        <a class="nav-link" href="<%= request.getContextPath() %>/member/logout">
           <i class="mdi mdi-power"></i>
         </a>
       </li>

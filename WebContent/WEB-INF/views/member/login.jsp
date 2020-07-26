@@ -3,9 +3,11 @@
 <%@page import="common.utill.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<c:set var="contextPath" value="${ pageContext.request.contextPath }" />
 <%
-	Employee empLoggedIn = (Employee) session.getAttribute("empLoggedIn");
-	String contextPath = request.getContextPath();
 	
 	//쿠키관련
 	Cookie[] cookies = request.getCookies();
@@ -140,11 +142,11 @@
 						<div class="auth-form-light text-left p-5">
 							<div class="brand-logo">
 								<img
-									src="<%=contextPath%>/resources/bootstrap/images/logo.png">
+									src="${ contextPath }/resources/bootstrap/images/logo.png">
 							</div>
 							<h4>반갑습니다 :)</h4>
 							<h6 class="font-weight-light kor">로그인 후 이용가능합니다.</h6>
-							<form class="pt-3" action="<%=contextPath%>/member/login"
+							<form class="pt-3" action="${ contextPath }/member/login"
 								id="loginFrm" method="post">
 								<div class="form-group">
 									<input type="text" class="form-control form-control-lg"
@@ -167,7 +169,7 @@
 										</label>
 									</div>
 									<a class="auth-link text-black kor" href=""
-										onclick="window.open('<%=contextPath%>/member/passwordFinder','_blank','top=1,left=500,width=500,height=600')">
+										onclick="window.open('${ contextPath }/member/passwordFinder','_blank','top=1,left=500,width=500,height=600')">
 										비밀번호찾기</a>
 								</div>
 							</form>
