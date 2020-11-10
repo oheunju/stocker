@@ -33,7 +33,7 @@
 
 ![](https://user-images.githubusercontent.com/61354985/89095019-c5b2ab80-d404-11ea-8f21-3ff6b6bacd47.JPG)
 
-![image-20201110144801580](C:\Users\eunju\AppData\Roaming\Typora\typora-user-images\image-20201110144801580.png)
+![Untitled](https://user-images.githubusercontent.com/61354985/98633358-9648fe80-2364-11eb-8777-c4b2a724bb1f.png)
 
 <br/>
 
