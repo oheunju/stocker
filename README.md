@@ -1,6 +1,6 @@
 ## Table of Contents
 
-* [About the Project](#about-the-project)
+* [About the Project](#STOCKer)
   * [Built With](#built-with)
 * [Usage](#usage)
 * [Contact](#contact)
